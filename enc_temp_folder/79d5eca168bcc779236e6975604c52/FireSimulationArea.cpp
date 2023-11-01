@@ -261,7 +261,7 @@ void AFireSimulationArea::DrawDebugOverlay()
     TArray<FVoxelDistance> ClosestVoxels;
     ClosestVoxels.Reserve(DebugElements);  // Reserve space for 100 elements
 
-    MaxTemperature = Voxels[0]->Temperature; //empty? why?
+    MaxTemperature = Voxels[0]->Temperature;
     MinTemperature = Voxels[0]->Temperature;
 
     for (UFireVoxel2* Voxel : Voxels)

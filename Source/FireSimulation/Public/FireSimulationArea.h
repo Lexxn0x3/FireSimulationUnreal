@@ -33,6 +33,10 @@ protected:
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 	virtual float CalculateHeatTransfer(float Temperature1, float Temperature2, float DeltaTime, float delta);
 	virtual FColor GetHeatMapColorForVoxel(float Temperature);
+	virtual TArray<UFireVoxel2*> CalculateVoxelProperties(TArray<UFireVoxel2*> voxels);
+	virtual TArray<UFireVoxel2*> GenerateVoxelsWithOccupancyProperties(TMap<AActor*, float> Occupancy);
+
+	TMap<AActor*, float> CalculateVoxelOccupancy(TArray<UFireVoxel2*> voxels);
 
 
 public:	
@@ -40,7 +44,7 @@ public:
 	FVector GridSize;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Simulation")
-	float CubeSize;
+	float VoxelSize;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Simulation")
 	TArray<UFireVoxel2*> Voxels;
